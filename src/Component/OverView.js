@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import YesterdayStat from './YesterdayStat'
 import TestComponent from './TestComponent'
 import Header from './Header'
+import DemoGraphicView from './DemoGraphicView'
 
 class OverView extends Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class OverView extends Component {
         this.state = {
             data: [],
             query: '',
-            myFilter: 'Confirmed'
+            myFilter: 'Confirmed-Most',
         }
     }
 
@@ -63,6 +64,7 @@ class OverView extends Component {
         }, 200);
     }
 
+    
     filterHandler = (e) => {
         this.setState({
             myFilter: e.target.value
@@ -160,6 +162,8 @@ class OverView extends Component {
                     <button className="btn" type="submit">Search</button>
                 </form>
 
+                <DemoGraphicView/>
+
                 {this.state.data.length === 38 ?<div className="filter-options">
                     <select value={this.state.myFilter} onChange={this.filterHandler}>
                         <option value='Confirmed-Most'>Most Confirmed Cases</option>
@@ -172,6 +176,8 @@ class OverView extends Component {
                         <option value='Recovered-Least'>Least Recovered</option>
                     </select>
                 </div> : ''}
+
+                
 
                 <div className="stateOverviewContainer">
                     {this.state.data.map(elem => (
