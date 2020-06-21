@@ -5,14 +5,18 @@ function DemoGraphicView() {
     return (
         <div className="tested">
             <h2>Demographic Views</h2>
-            <Link to="/comparison" style={getStyle}><p className="text text-danger">State Wise Comparison</p></Link>
-            <Link to="/twenty" style={getStyle}><p className="text text-danger">Last 20 Days</p></Link>
+            <Link to="/comparison" style={getStyle}><i style={iconStyle} className="fa fa-hand-o-right"></i><span className="text text-danger">State Wise Comparison</span></Link>
+            <Link to="/twenty" style={getStyle}><i style={iconStyle} className="fa fa-hand-o-right"></i><span className="text text-danger">Last 20 Days</span></Link>
         </div>
     )
 }
 const getStyle = {
     cursor : 'pointer',
     textDecoration:'none'
+}
+const iconStyle = {
+    fontSize:'20px',
+    color:'red'
 }
 
 export default DemoGraphicView
