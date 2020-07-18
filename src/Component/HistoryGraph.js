@@ -24,7 +24,7 @@ class HistoryGraph extends Component {
         let length = result.length;
         console.log(length);
 
-        result = result.splice(length - 20, length);
+        result = result.splice(0, length-1);
         console.log(result);
 
         this.setState({
@@ -163,7 +163,7 @@ class HistoryGraph extends Component {
 
         return (
             <div style={wrapperStyle}>
-                <h2 className="header">Last 20 days</h2>
+                <h2 className="header">From Starting</h2>
                 <Link style={linkStyle} to="/"><button className="home-btn" style={getStyle}>HOME</button></Link>
                 {this.state.type === 'column' ? <div>
                     <button onClick={() => this.setState({ type: '' })} className="home-btn" style={getStyle}>Line View</button>

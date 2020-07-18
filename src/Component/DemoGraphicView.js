@@ -6,7 +6,7 @@ function DemoGraphicView() {
         <div className="tested">
             <h2>Demographic Views</h2>
             <Link to="/comparison" style={getStyle}><i style={iconStyle} className="fa fa-hand-o-right"></i><span className="text text-danger">State Wise Comparison</span></Link>
-            <Link to="/twenty" style={getStyle}><i style={iconStyle} className="fa fa-hand-o-right"></i><span className="text text-danger">Last 20 Days</span></Link>
+            <Link to="/twenty" style={getStyle}><i style={iconStyle} className="fa fa-hand-o-right"></i><span className="text text-danger">From Starting</span></Link>
         </div>
     )
 }

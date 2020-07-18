@@ -19,7 +19,7 @@ class YesterdayStat extends Component {
         const res = await fetch('https://api.covid19india.org/data.json');
         const data = await res.json();
 
-        let result = data["cases_time_series"].pop();
+        let result = data["cases_time_series"][data["cases_time_series"].length - 2];
         // console.log(result)
         let {dailyconfirmed, dailyrecovered, dailydeceased,date} = result
         this.setState({
