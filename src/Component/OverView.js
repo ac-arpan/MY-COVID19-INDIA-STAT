@@ -28,7 +28,8 @@ class OverView extends Component {
         const res = await fetch('https://api.covid19india.org/data.json');
         const data = await res.json();
 
-        let result = data["statewise"];
+        let result = data["statewise"].filter(state => state.statecode !== "UN");
+        result = result.sort((a, b) => Number(a.confirmed) < Number(b.confirmed) ? 1 : -1)
         this.setState({
             data: [...result]
 
@@ -143,6 +144,11 @@ class OverView extends Component {
 
                 })
                 break
+            default:
+                this.setState({
+                    data: this.state.data.sort((a, b) => Number(a.confirmed) < Number(b.confirmed) ? 1 : -1)
+
+                })
 
         }
     }
@@ -164,7 +170,7 @@ class OverView extends Component {
 
                 <DemoGraphicView/>
 
-                {this.state.data.length === 38 ?<div className="filter-options">
+                {this.state.data.length === 37 ?<div className="filter-options">
                     <select value={this.state.myFilter} onChange={this.filterHandler}>
                         <option value='Confirmed-Most'>Most Confirmed Cases</option>
                         <option value='Confirmed-Least'>Least Confirmed Cases</option>

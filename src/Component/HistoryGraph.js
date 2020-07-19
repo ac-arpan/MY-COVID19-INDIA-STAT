@@ -24,7 +24,7 @@ class HistoryGraph extends Component {
         let length = result.length;
         console.log(length);
 
-        result = result.splice(0, length-1);
+        result = result.splice(0, length);
         console.log(result);
 
         this.setState({
