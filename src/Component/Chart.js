@@ -19,8 +19,14 @@ class Chart extends Component {
         const res = await fetch('https://api.covid19india.org/data.json');
         const data = await res.json();
 
-        let result = data["statewise"].splice(1,25);
-        result = result.slice(0,20);
+        // let result = data["statewise"].splice(1,25);
+        // result = result.slice(0,20);
+
+        let result = data["statewise"].filter(state => state.statecode !== "UN");
+        result = result.sort((a, b) => Number(a.confirmed) < Number(b.confirmed) ? 1 : -1)
+        result = result.splice(1, 25)
+        result = result.slice(0, 20)
+        
         this.setState({
             data: [...result]
 
