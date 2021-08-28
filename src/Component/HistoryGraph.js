@@ -17,7 +17,8 @@ class HistoryGraph extends Component {
         this.getData()
     }
     getData = async () => {
-        const res = await fetch('https://api.covid19india.org/data.json');
+        // const res = await fetch('https://api.covid19india.org/data.json');
+        const res = await fetch('https://data.covid19india.org/data.json');
         const data = await res.json();
 
         let result = data["cases_time_series"];

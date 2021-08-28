@@ -25,7 +25,8 @@ class OverView extends Component {
     }
 
     getData = async () => {
-        const res = await fetch('https://api.covid19india.org/data.json');
+        // const res = await fetch('https://api.covid19india.org/data.json');
+        const res = await fetch('https://data.covid19india.org/data.json');
         const data = await res.json();
 
         let result = data["statewise"].filter(state => state.statecode !== "UN");

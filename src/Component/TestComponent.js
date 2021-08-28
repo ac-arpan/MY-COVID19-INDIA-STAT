@@ -15,7 +15,8 @@ class TestComponent extends Component {
         this.getPrevData()
     }
     getPrevData = async () => {
-        const res = await fetch('https://api.covid19india.org/data.json');
+        // const res = await fetch('https://api.covid19india.org/data.json');
+        const res = await fetch('https://data.covid19india.org/data.json');
         const data = await res.json();
 
         let testResult = data["tested"].pop();

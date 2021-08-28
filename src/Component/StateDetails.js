@@ -15,7 +15,8 @@ class StateDetails extends Component {
     }
 
     getData = async () => {
-        const res = await fetch('https://api.covid19india.org/state_district_wise.json');
+        // const res = await fetch('https://api.covid19india.org/state_district_wise.json');
+        const res = await fetch('https://data.covid19india.org/state_district_wise.json');
         const data = await res.json();
 
         let result = [];
